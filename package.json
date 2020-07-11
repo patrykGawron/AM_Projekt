@@ -2,7 +2,7 @@
   "name": "Projekt",
   "version": "1.0.0",
   "description": "Potrzebne moduły:  \r `npm init -y`  \r Express.js i ejs do backendu:  \r `npm i express ejs express-ejs-layouts`  \r Nodemon:  \r `npm i --save-dev nodemon`  \r Uruchomienie Nodemon:  \r `npm run devStart`  \r Mongoose (baza danych):  \r `npm i mongoose`  \r Environment variables (np. DATABASE_URL):  \r `npm i --save-dev dotenv`  \r Body-parser:  \r `npm i body-parser`  \r Methor-override:  \r `npm i method-override`  \r Jeżeli pobrane pull requestem wystarczy:  \r `npm install`",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "devStart": "nodemon server.js"
@@ -11,12 +11,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
     "ejs": "^3.1.3",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.9.16"
+    "mongoose": "^5.9.16",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
