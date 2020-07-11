@@ -1,15 +1,16 @@
 <h1 > Zaloguj </h1>
+<%- include('../partials/messages') %>
 <form action="/login" method="POST">
   <div>
     <label for="email">Email</label>
-    <input type="email" id="email" name="email" placeholder="Enter Email" />
+    <input type="email" id="email" name="email" placeholder="Wpisz email" />
   </div>
   <div>
     <label for="password">Hasło</label>
-    <input type="password" id="password" name="password" placeholder="Create Password" />
+    <input type="password" id="password" name="password" placeholder="Wpisz hasło" />
   </div>
   <button type="submit">
     Login
   </button>
 </form>
-<p> Nie masz konta? <a href="/login">Zarejestruj</a></p>
+<p> Nie masz konta? <a href="/register">Zarejestruj</a></p>

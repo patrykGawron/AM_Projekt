@@ -1,20 +1,21 @@
 <h1 > Zarejestruj </h1>
+<%-  include('../partials/messages') -%>
 <form action="/register" method="POST">
   <div>
     <label for="name">Imie</label>
-    <input type="name" id="name" name="name" placeholder="Enter Name" />
+    <input type="name" id="name" name="name" placeholder="Wpisz imie" value="<%= typeof name != 'undefined' ? name : '' %>" />
   </div>
   <div>
     <label for="email">Email</label>
-    <input type="email" id="email" name="email" placeholder="Enter Email" />
+    <input type="email" id="email" name="email" placeholder="Wpisz email"  value="<%= typeof email != 'undefined' ? email : '' %>"/>
   </div>
   <div>
     <label for="password">Hasło</label>
-    <input type="password" id="password" name="password" placeholder="Create Password" />
+    <input type="password" id="password" name="password" placeholder="Stwórz hasło" value="<%= typeof password != 'undefined' ? password : '' %>" />
   </div>
   <div>
     <label for="password2">Potwierdź hasło</label>
-    <input type="password" id="password2" name="password2" placeholder="Confirm Password" />
+    <input type="password" id="password2" name="password2" placeholder="Potwierdź hasło" value="<%= typeof password2 != 'undefined' ? password2 : '' %>"/>
   </div>
   <button type="submit">
     Zarejestruj
