@@ -3,23 +3,30 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    margin: 0;
+    display: flex;
 }
+/* body .main{
+    display: flex;
+} */
 
 .sidenav {
     height: 100%;
     width: 250px;
     position: fixed;
     z-index: 1;
-    top: 0;
-    left: 0;
     background-color: #111111;
+    overflow: hidden;
     overflow-x: hidden;
     padding-top: 20px;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
-
+.sidenav .icon{
+    display: none;
+}
 .sidenav a {
-    padding: 6px 8px 6px 16px;
+    padding: 6px 8px 6px 8px;
+    margin-left: 8px;
     text-decoration: none;
     font-size: 1.5rem;
     color: #818181;
@@ -27,29 +34,16 @@ body {
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+    background-color: #f1f1f1;
+    color: black;
 }
 
 .main {
     margin-left: 250px;
-    /* Same as the width of the sidenav */
     font-size: 14px;
-    /* Increased text to enable scrolling */
     padding: 0px 10px;
 }
-.login{
-    position: absolute;
-    bottom: 80px;
-    display: none;
-}
-.signin{
-    position: absolute;
-    bottom: 40px;
-    display: block;
-}
-/* form{
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-} */
+
 input[type=email], input[type=password], input[type=name] {
     width: 300px;
     padding: 5px 10px;
@@ -74,10 +68,16 @@ input[type=submit]:hover {
     color: #f1f1f1;
 }
 @media screen and (max-width: 720px) {
+    body{
+        flex-direction: column;
+    }
     .sidenav {
         width: 100%;
         height: auto;
-        position: relative;
+        /* position: absolute;
+        top: 0px;
+        left: 0px; */
+        padding-top: 10px;
     }
     .sidenav a {
         font-size: 18px;
@@ -94,7 +94,80 @@ input[type=submit]:hover {
     }
 }
 @media screen and (max-width: 480px) {
+    .sidenav a:not(:first-child) {display: none;margin-left: 5px;
+    padding-left: 5px;}
+    .sidenav a.icon {
+    fill: #818181;
+    float: right;
+    display: block;
+    height: 23px;
+    width: auto;
+    margin-bottom: 2px;
+    
+    }
+    .sidenav a.icon:hover{
+        fill: black;
+    }
+    /* .sidenav.topbar {position: relative;} */
+    .sidenav.topbar .icon {
+    position: absolute;
+    right: 0;
+    top: 10px;
+  }
+  
+  .sidenav.topbar a:not(.sub) {
+    float: none;
+    display: block;
+    text-align: left;
+    }
+    .sidenav.topbar a:not(.icon){
+       margin-left: 0px;
+    padding-left: 16px; 
+    }
+
     input[type=email], input[type=password], input[type=submit], input[type=name]{
         width: 100%;
     }
+    div.main {
+        margin-top: 40px;
+    }
+}
+@media screen and (min-width: 721px){
+    .login{
+        position: absolute;
+        bottom: 80px;
+        display: none;
+        width: 100%;
+    }
+    .signin{
+        position: absolute;
+        bottom: 40px;
+        display: block;
+        width: 100%;
+    }
+    .main{
+        margin-top: 0px;
+    }
+}
+.list-container{
+    display: flex;
+    flex-direction: left;
+    flex-wrap: wrap;
+}
+
+.list{
+    /* background-color: #f2f2f2; */
+    border: black 3px solid;
+    padding: 0px 5px 0px 5px;
+    border-radius: 10px;
+    margin: 10px 10px 10px 0px;
+    
+}
+.list ol{
+    padding-left: 15px;
+    text-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+
+}
+li:hover{
+    color: #f1f1f1;
 }
