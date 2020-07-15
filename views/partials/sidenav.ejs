@@ -1,21 +1,20 @@
-<a href="/">Home</a>
-<a href="/primarySchool">Szkoła podstawowa</a>
+<a href="/" class="home-button">Home</a>
 
-<!-- 
-    TODO: 
-    Pitagoras jako element listy rozwijanej z "Szkoła podstawowa"
--->
-<a href="/primarySchool/pythagoreanTheorem" class="sub">Twierdzenie Pitagorasa</a>
+<!-- <a href="/primarySchool" class="dropdown-button">Szkoła podstawowa <i class="arrow right"></i></a> -->
+<a id="prim-sch" class="dropdown-button" onclick="primSchDropdown()">Szkoła podstawowa <i id="prim-sch-arrow"
+        class="arrow right"></i></a>
+<div class="dropdown-container1">
+    <a href="/primarySchool/pythagoreanTheorem" class="sub">Twierdzenie Pitagorasa</a>
+</div>
 
+<!-- <a href="/highSchool" class="dropdown-button">Liceum <i class="arrow right"></i></a> -->
+<a id="high-sch" class="dropdown-button" onclick="highSchDropdown()">Liceum <i id="high-sch-arrow"
+        class="arrow right"></i></a>
+<div class="dropdown-container2">
+    <a href="/highSchool/quadraticFunction" class="sub">Funkcja kwadratowa</a>
+</div>
 
-<a href="/highSchool">Liceum</a>
-
-<!-- 
-    TODO: 
-    Funkcja kwadratowa jako element listy rozwijanej z "Liceum"
--->
-<a href="/highSchool/quadraticFunction" class="sub">Funkcja kwadratowa</a>
-<a onclick="console.log('topkek') " class="login" href='/login'>Zaloguj się</a>
+<a class="login" href='/login'>Zaloguj się</a>
 <a class="signin" href="/register">Zarejestruj się</a>
 <a href="javascript:void(0);" class="icon" onclick="sideNavToTopBar()">
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
