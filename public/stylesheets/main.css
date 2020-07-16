@@ -1,64 +1,8 @@
-/*  Simple mock up taken from  https://www.w3schools.com/howto/howto_css_fixed_sidebar.asp 
-    for back-end developement */
+/* PLIK Z OGÓLNYM DESIGNEM STRON */
 
-body {
-    font-family: 'Roboto', sans-serif;
+body{
     margin: 0;
-    display: flex;
-    color: black;
-}
-.sidenav {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    z-index: 1;
-    background-color: #111111;
-    overflow: hidden;
-    overflow-x: hidden;
-    padding-top: 20px;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-}
-.sidenav .icon{
-    display: none;
-}
-.arrow {
-    border: solid #818181;
-    border-width: 0 3px 3px 0;
-    float: right;
-    padding: 4px;
-    margin-top: 10px;
-  }
-  .arrow.right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-  }
-.sidenav a, .dropdown-button1, .dropdown-button2 {
-    padding: 6px 8px 6px 8px;
-    margin-left: 8px;
-    text-decoration: none;
-    font-size: 1.4rem;
-    color: #818181;
-    display: block;
-    cursor: pointer;
-    background: none;
-    outline: none;
-}
-/* .active{
-    background-color: #f1f1f1;
-    color: black; 
-} */
-.sidenav a:hover {
-    background-color: #f1f1f1;
-    color: black;
-}
-.dropdown-container1, .dropdown-container2{
-    display: none;
-}
-
-.main {
-    margin-left: 250px;
-    font-size: 14px;
-    padding: 0px 10px;
+    font-family: 'Roboto', sans-serif;
 }
 
 input[type=email], input[type=password], input[type=name] {
@@ -84,92 +28,6 @@ input[type=submit] {
 input[type=submit]:hover {
     color: #f1f1f1;
 }
-@media screen and (max-width: 1024px) {
-    body{
-        flex-direction: column;
-    }
-    .sidenav {
-        width: 100%;
-        height: auto;
-        padding-top: 10px;
-    }
-    .arrow{
-        display: none;
-    }
-    .sidenav a {
-        font-size: 18px;
-        float: left;
-    }
-    .main{
-        margin-top: 40px;
-        margin-left: 0;
-    }
-    .login{
-        display: none;
-    }
-    .signin{
-        display: none;
-    }
-}
-@media screen and (max-width: 480px) {
-    .sidenav a:not(.home-button) {display: none;margin-left: 5px;
-    padding-left: 5px;}
-    .sidenav a.icon {
-    fill: #818181;
-    float: right;
-    display: block;
-    height: 23px;
-    width: auto;
-    margin-bottom: 2px;
-    }
-    .arrow{
-        display: none;
-    }
-    .sidenav a.icon:hover{
-        fill: black;
-    }
-    .sidenav.topbar .icon {
-    position: absolute;
-    right: 0;
-    top: 10px;
-  }
-  .sidenav.topbar a:not(.sub) {
-    float: none;
-    display: block;
-    text-align: left;
-    }
-    .sidenav.topbar a:not(.icon){
-       margin-left: 0px;
-    padding-left: 16px; 
-    }
-
-    input[type=email], input[type=password], input[type=submit], input[type=name]{
-        width: 100%;
-    }
-    div.main {
-        margin-top: 40px;
-    }
-}
-@media screen and (min-width: 1025px){
-    .login{
-        position: absolute;
-        bottom: 80px;
-        display: none;
-        width: 100%;
-    }
-    .signin{
-        position: absolute;
-        bottom: 40px;
-        display: block;
-        width: 100%;
-    }
-    .main{
-        margin-top: 0px;
-    }
-    .sidenav .sub{
-        border: 2px solid #f1f1f1;
-    }
-}
 .list-container{
     display: flex;
     flex-direction: left;
@@ -177,7 +35,7 @@ input[type=submit]:hover {
 }
 .list{
     border-left: black 3px solid;
-    padding: 0px 5px 0px 5px;
+    padding: 0px 5px 0px 10px;
     margin: 10px 10px 10px 0px;
 }
 .list ol{
@@ -187,4 +45,23 @@ input[type=submit]:hover {
 li:hover{
     color: #818181;
     cursor: pointer;
+}
+@media screen and (min-width: 1025px){
+    .topnav{
+        display: none;
+    }
+    .sidenav{
+        display: block;
+    }
+}
+@media screen and (max-width: 1024px){
+    .topnav{
+        display: block;
+    }
+    .sidenav{
+        display: none;
+    }
+    .main{
+        margin-left: 0;
+    }
 }

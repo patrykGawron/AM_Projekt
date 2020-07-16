@@ -4,14 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/javascripts/example.js"></script>
+    <script src="/javascripts/script.js"></script>
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/sidenav.css">
+    <link rel="stylesheet" href="/stylesheets/topnav.css">
     <link rel="stylesheet" href="/stylesheets/main.css">
+    <!-- <link rel="stylesheet" href="/stylesheets/body"> -->
 </head>
 
 <body>
-    <div id="mainSidenav" class="sidenav">
+    <div id="myTopnav" class="topnav">
+        <%- include('../partials/topnav.ejs') -%>
+    </div>
+    <div id="mySidenav" class="sidenav">
         <%- include('../partials/sidenav.ejs') -%>
     </div>
 

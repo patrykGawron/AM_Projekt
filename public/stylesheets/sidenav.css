@@ -1,0 +1,67 @@
+/* WYGLĄD PASKA NAWIGACYJNEGO U BOKU EKRANU */
+
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+.arrow {
+    border: solid #818181;
+    border-width: 0 3px 3px 0;
+    float: right;
+    padding: 4px;
+    margin-top: 10px;
+}
+.arrow.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+  
+.sidenav a, .side-dropdown-button {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+  
+.sidenav a:hover, .side-dropdown-button:hover {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.main {
+    margin-left: 250px; 
+    font-size: 14px; 
+    padding: 0px 10px;
+}
+  
+
+.active {
+    background-color: #f1f1f1;
+    color: black;
+}
+  
+
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 0px;
+}
+.dropdown-container a{
+      border-bottom: 2px solid #f1f1f1;
+}
+
+
