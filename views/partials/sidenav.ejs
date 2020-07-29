@@ -12,8 +12,10 @@
     <%- include('../highSchool/index.ejs') -%>
 </div>
 
+<% if(!login) {%> 
 <a class="login" href='/login'>Zaloguj się</a>
 <a class="signin" href="/register">Zarejestruj się</a>
+<% } %>
 
 <div class="social-media-container">
     <p>Znajdziesz nas na:</p>

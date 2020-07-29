@@ -44,6 +44,11 @@ app.use((req, res, next) =>{
     next();
 })
 
+app.use(function(req, res, next){
+    res.locals.login = req.isAuthenticated();
+    next()
+})
+
 
 // MongoDB
 const mongoose = require('mongoose')

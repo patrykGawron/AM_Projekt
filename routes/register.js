@@ -2,15 +2,16 @@ const express = require('express')
 const passport = require('passport')
 const router = express.Router()
 const bcrypt = require('bcryptjs')
+const { ensureNotAuthenticated } = require('../config/notAuth')
 
 // User model
 const User = require('../models/User')
 
-router.get('/', (req, res) => {
+router.get('/', ensureNotAuthenticated, (req, res) => {
     res.render('register/index')
 })
 
-router.post('/', (req, res) => {
+router.post('/', ensureNotAuthenticated, (req, res) => {
     //console.log(req.body)
     const { name, email, password, password2 } = req.body
     let errors = []
