@@ -1,1 +1,24 @@
-<p> This is page for pythagorean theorem</p>
+<h2>Twierdzenie pitagorasa</h2>
+
+<svg height="300" width="500">
+    <polygon id="triangle" points="30,30 30,270 470,270" style="fill:none;stroke:black;stroke-width:1" />
+    <text x="10" y="150" fill="black" id="triangle-a">a</text>
+    <text x="300" y="150" fill="black" id="triangle-c">c</text>
+    <text x="250" y="290" fill="black" id="triangle-b">b</text>
+</svg>
+
+<!-- <input type="range" min="1" max="60" value="20" oninput="moveSlider(this, 'x')" />
+<input type="range" min="1" max="40" value="10" oninput="moveSlider(this, 'y')" /> -->
+
+<p>Kwadrat długości przeciwprostokątnej trójkąta jest równy sumie kwadratów jego przyprostokątnych.</p>
+<div lang="latex">
+    a^{2}+b^{2} = c^{2}
+</div>
+<!-- <script>
+    var moveSlider = function (slider, direction) {
+        var value = slider.value;
+        var triangle = document.getElementById("triangle");
+        var coord = "c" + direction;
+        triangle.setAttributeNS(null, coord, value * 5);
+    }
+</script> -->

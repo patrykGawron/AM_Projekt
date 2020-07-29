@@ -1,0 +1,36 @@
+<h2>Planimetria, trójkąty</h2>
+
+<h3>Dopasuj trójkąty do ich nazw:</h3>
+
+<div class="drop-container">
+    <p>Trójkąty przystające</p>
+    <div class="div-target" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+</div>
+<div class="drop-container">
+    <p>Trójkąty podobne</p>
+    <div class="div-target" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+</div>
+<div id="drag1" draggable="true" ondragstart="drag(event)" style="height: 100px; width: 150px;">
+    <svg height="100" width="150">
+        <polygon points="2,2 2,48 48,48" style="fill:gray"></polygon>
+        <polygon points="2,2 48,2 48,48" style="fill:blue"></polygon>
+    </svg>
+</div>
+
+
+
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+</script>

@@ -8,6 +8,9 @@ router.get('/', (req, res) => {
 router.get('/pythagoreanTheorem', (req, res) => {
     res.render('primarySchool/pythagoreanTheorem')
 })
+router.get('/planimetry', (req, res) => {
+    res.render('primarySchool/planimetry')
+})
 
 
 module.exports = router

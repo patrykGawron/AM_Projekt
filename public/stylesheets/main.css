@@ -1,10 +1,20 @@
 /* PLIK Z OGÓLNYM DESIGNEM STRON */
-
 body{
     margin: 0;
     font-family: 'Roboto', sans-serif;
 }
 
+/* LAYOUT STRON Z ZAGADNIENIAMI */
+.main svg{
+    margin-left: 20px;
+    max-width: 600px;
+    max-height: 400px;
+}
+.main svg text{
+    font: 15px;
+}
+
+/* LOGOWANIE I REJESTRACJA */
 input[type=email], input[type=password], input[type=name] {
     width: 300px;
     padding: 5px 10px;
@@ -21,13 +31,15 @@ input[type=submit] {
     color: #818181;
     padding: 5px 10px;
     margin: 3px 0;
-    border: none;
+    border: 1px solid #111111;
     border-radius: 4px;
     cursor: pointer;
   }
 input[type=submit]:hover {
     color: #f1f1f1;
 }
+
+/* LISTA ZAGADNIEŃ */
 .list-container{
     display: flex;
     flex-direction: left;
@@ -46,6 +58,49 @@ li:hover{
     color: #818181;
     cursor: pointer;
 }
+
+/* SERWISY SPOŁECZNOŚCIOWE */
+.fa {
+    padding: 10px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 3px;
+}
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+  
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+}
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* GRA DRAG AND DROP */
+.div-target{
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #aaaaaa;
+}
+.drop-container{
+    display: flex;
+}
+.drop-container p{
+    width: 150px;
+}
+
+/* ZMIANA PASKA NAWIGACYJNEGO */
 @media screen and (min-width: 1025px){
     .topnav{
         display: none;
