@@ -67,6 +67,8 @@ const highSchoolRouter = require('./routes/highSchool')
 const loginRouter = require('./routes/login')
 const registerRouter = require('./routes/register')
 const dashboardRouter = require('./routes/dashboard')
+const problemsRouter = require('./routes/problems')
+
 
 // Routes
 app.use('/', indexRouter)
@@ -75,6 +77,7 @@ app.use('/highSchool', highSchoolRouter)
 app.use('/login', loginRouter)
 app.use('/register', registerRouter)
 app.use('/dashboard', dashboardRouter)
+app.use('/problems', problemsRouter)
 
 
 app.listen(process.env.PORT || 3000)
