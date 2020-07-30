@@ -1,10 +1,13 @@
-<a href="/" class="home-button">Home</a>
+<a href="/" class="home-button">Strona główna</a>
+<% if(login) {%> 
+<a href="/dashboard">Panel użytkownika</a>
+<a href="/problems">Zadania</a>
+<% } %>
 
 <button class="side-dropdown-button">Szkoła podstawowa <i class="arrow down"></i></button>
 <div class="dropdown-container">
     <%- include('../primarySchool/index.ejs') -%>
 </div>
-
 
 
 <button class="side-dropdown-button">Liceum <i class="arrow down"></i></button>
