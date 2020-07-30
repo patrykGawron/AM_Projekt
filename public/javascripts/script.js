@@ -1,3 +1,5 @@
+const passport = require("passport");
+
 function topnavDrop() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
