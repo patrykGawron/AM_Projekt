@@ -1,6 +1,5 @@
-<h2>Nowe zadanie</h2>
 <%= error_msg %>
-<form action="/problems" method="POST">
+<form action="/problems/<%= problem.id %>?_method=PUT" method="POST">
     <div>
         <label>Nazwa zadania</label>
         <input type="text" name="title" value="<%= problem.title %>">
@@ -19,7 +18,7 @@
     </div>
     <div>
         <label>Poziom</label>
-        <input list="school" name="school">
+        <input list="school" name="school" value="<%= problem.school %>">
         <datalist id="school">
             <option value="Liceum">
             <option value="Szkoła podstawowa">

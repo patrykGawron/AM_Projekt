@@ -1,6 +1,10 @@
 <a href="/" class="home-button">Home</a>
+
+<% if(login) {%> 
 <a href="/dashboard">Panel użytkownika</a>
 <a href="/problems">Zadania</a>
+<% } %>
+
 <div class="dropdown">
     <button class="dropdown-button">Szkoła podstawowa<i class=" arrow down"></i></button>
     <div class=" dropdown-content">

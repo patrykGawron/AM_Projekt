@@ -1,9 +1,12 @@
 const mongoose = require('mongoose')
+var uniqueValidator = require('mongoose-unique-validator');
 
-const UserSchema = new mongoose.Schema({
+
+const ProblemSchema = new mongoose.Schema({
     title:{
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     contents: {
         type: String,
@@ -31,4 +34,6 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Problem', UserSchema)
+ProblemSchema.plugin(uniqueValidator)
+
+module.exports = mongoose.model('Problem', ProblemSchema)

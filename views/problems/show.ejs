@@ -7,4 +7,8 @@
 <h3><%= problem.author %></h3>
 <h3><%= problem.date %></h3>
 
+<form method="POST" action="/problems/<%= problem.id %>?_method=DELETE">
+    <button type="submit">Usuń</button>
+</form>
+
 
