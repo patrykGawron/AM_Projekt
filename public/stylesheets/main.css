@@ -117,10 +117,7 @@ li:hover{
 
 /* ZAŁĄCZNIK YOUTUBE */
 .iframe-container{
-    /* margin: 0 20%; */
     position: relative;
-    /* max-width: 1024px; */
-    /* max-height: 720px; */
     width: 100%;
     padding-bottom: 56.25%; 
     height: 0;
