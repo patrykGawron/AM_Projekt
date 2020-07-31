@@ -1,3 +1,25 @@
 <h1>Dashboard</h1>
-<p>Welcome <%= name %></p>
+<p>Witaj <%= name %>!</p>
+<p>Lista zadań dodanych przez Ciebie:</p>
+<ul>
+    <% problems.forEach(problem => { %>
+    <div style="float:left; width:100%; margin-bottom: 10px; border-bottom: 1px solid rgb(100, 100, 100)">
+        <div style="float:left;width: 88%">
+            <li><a href="/problems/<%= problem.title %>"><%= problem.title %></a></li>
+        </div>
+        <div style="float:left;width: 6%">
+            <form method="GET" action="/problems/<%= problem.id %>/edit">
+                <button type="submit">Edytuj</button>
+            </form>
+        </div>
+        <div style="float:left;width: 6%"> 
+            <form method="POST" action="/problems/<%= problem.id %>?_method=DELETE">
+                <button type="submit">Usuń</button>
+            </form>
+        </div>
+    </div>
+    <% }) %>
+</ul>
+
 <a href="/dashboard/logout">Logout</a>
+<a href="/problems/new">Dodaj zadanie</a>

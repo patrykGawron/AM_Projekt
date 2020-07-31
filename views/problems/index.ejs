@@ -1,0 +1,6 @@
+<h1>This is problems index page</h1> 
+<ul>
+<% problems.forEach(problem => { %>
+    <li><a href="/problems/<%= problem.title %>"><%= problem.title %></a></li>
+<% }) %>
+</ul>

@@ -8,6 +8,8 @@ const expressLayouts = require('express-ejs-layouts')
 const flash = require('connect-flash')
 const session = require('express-session')
 const passport = require('passport')
+const methodOverride = require('method-override')
+const { ensureAuthenticated } = require('./config/auth')
 
 // Passport config
 require('./config/passport')(passport)
@@ -19,6 +21,7 @@ app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
 app.use(express.static('public'))
+app.use(methodOverride('_method'))
 
 
 // Bodyparser
@@ -46,8 +49,13 @@ app.use((req, res, next) => {
 
 app.use(function (req, res, next) {
     res.locals.login = req.isAuthenticated();
+    res.locals.user = req.user === undefined ? 'none' : req.user
     next()
 })
+
+// Dostęp do dashboarda i zadań tylko po zalogowaniu
+app.use('/problems', ensureAuthenticated)
+app.use('/dashboard', ensureAuthenticated)
 
 
 // MongoDB
@@ -69,6 +77,8 @@ const highSchoolRouter = require('./routes/highSchool')
 const loginRouter = require('./routes/login')
 const registerRouter = require('./routes/register')
 const dashboardRouter = require('./routes/dashboard')
+const problemsRouter = require('./routes/problems')
+
 
 // Routes
 app.use('/', indexRouter)
@@ -77,6 +87,7 @@ app.use('/highSchool', highSchoolRouter)
 app.use('/login', loginRouter)
 app.use('/register', registerRouter)
 app.use('/dashboard', dashboardRouter)
+app.use('/problems', problemsRouter)
 
 
 app.listen(process.env.PORT || 3000)
