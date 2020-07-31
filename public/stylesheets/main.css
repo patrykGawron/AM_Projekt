@@ -149,7 +149,7 @@ a:hover{
     background-color: #f1f1f1;
 }
 .problem button{
-    float:left;
+    float:right;
     width: 8%;
     background-color: #111111;
     color: #818181;
@@ -157,6 +157,7 @@ a:hover{
     border-radius: 4px;
     cursor: pointer;
     margin: 1px 3px 4px 3px;
+    min-width: 50px;
 }
 .problem button:hover {
     color: #f1f1f1;
@@ -165,7 +166,6 @@ a:hover{
     color: #f1f1f1;
 }
 #problem-title{
-    width: calc(84% - 12px);
     float: left;
 }
 .free-link{
