@@ -9,6 +9,7 @@ const flash = require('connect-flash')
 const session = require('express-session')
 const passport = require('passport')
 const methodOverride = require('method-override')
+const { ensureAuthenticated } = require('./config/auth')
 
 // Passport config
 require('./config/passport')(passport)
@@ -48,8 +49,13 @@ app.use((req, res, next) =>{
 
 app.use(function(req, res, next){
     res.locals.login = req.isAuthenticated();
+    res.locals.user = req.user === undefined ? 'none' : req.user
     next()
 })
+
+// Dostęp do dashboarda i zadań tylko po zalogowaniu
+app.use('/problems', ensureAuthenticated)
+app.use('/dashboard', ensureAuthenticated)
 
 
 // MongoDB

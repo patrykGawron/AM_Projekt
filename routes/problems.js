@@ -6,7 +6,7 @@ const { ensureAuthenticated } = require('../config/auth')
 
 
 // Ścieżka do listy zadań
-router.get('/', ensureAuthenticated, async (req, res) => {
+router.get('/', async (req, res) => {
     try
     {
         const problems = await Problem.find()
@@ -19,12 +19,12 @@ router.get('/', ensureAuthenticated, async (req, res) => {
 })
 
 // Strona dodawania nowego zadania
-router.get('/new', ensureAuthenticated, (req, res) => {
+router.get('/new', (req, res) => {
     res.render('problems/new', { problem: new Problem() })
 })
 
 // Tworzenie nowego zadnia
-router.post('/', ensureAuthenticated, async (req, res) => {
+router.post('/', async (req, res) => {
     const problem = new Problem({
         title: req.body.title,
         contents: req.body.contents,
@@ -51,7 +51,7 @@ router.post('/', ensureAuthenticated, async (req, res) => {
 })
 
 // Ścieżka do wyświetlenia strony konkretnego zadania
-router.get('/:title', ensureAuthenticated, async (req, res) => {
+router.get('/:title', async (req, res) => {
     try{
         const problem = await Problem.findOne({ title: req.params.title }).exec()
         res.render('problems/show', { problem: problem })
@@ -61,9 +61,9 @@ router.get('/:title', ensureAuthenticated, async (req, res) => {
 })
 
 // Strona do edytowania zadań
-router.get('/:title/edit', ensureAuthenticated, async (req, res) => {
+router.get('/:id/edit', canEdit, async (req, res) => {
     try{
-        const problem = await Problem.findOne({ title: req.params.title }).exec()
+        const problem = await Problem.findById(req.params.id)
         res.render('problems/edit', { problem: problem })
     } catch {
         res.redirect('/problems')
@@ -72,7 +72,7 @@ router.get('/:title/edit', ensureAuthenticated, async (req, res) => {
 
 
 // Zapisywanie zmian do bazy danych
-router.put('/:id', ensureAuthenticated, async (req, res) => {
+router.put('/:id', canEdit, async (req, res) => {
     let problem
     try{
         problem = await Problem.findById(req.params.id)
@@ -83,7 +83,7 @@ router.put('/:id', ensureAuthenticated, async (req, res) => {
         problem.school = req.body.school
         await problem.save()
         res.redirect(`/problems/${problem.title}`)
-    } catch {
+    } catch(error) {
         if(problem == null){
             res.redirect('/')
         }
@@ -91,10 +91,12 @@ router.put('/:id', ensureAuthenticated, async (req, res) => {
             problem: problem,
             error_msg: 'Wystąpił błąd podczas edytowania zadania.'
         })
+        console.log(error)
     }
 })
 
-router.delete('/:id', async (req, res) => {
+// Usuwanie zadania
+router.delete('/:id', canEdit, async (req, res) => {
     let problem
     try {
         problem = await Problem.findById(req.params.id)
@@ -107,5 +109,22 @@ router.delete('/:id', async (req, res) => {
         res.redirect(`/problems/${problem.title}`)
     }
 })
+
+
+// Gwarancja że użytkownicy będą mogli edytować/usuwać jedynie swoje zadania
+async function canEdit(req, res, next){
+    try{
+        const problem = await Problem.findById(req.params.id)
+        if( problem.author == req.user.name ){
+            next()
+        }
+        else {
+            res.redirect('/problems')
+        }
+    } catch(error) {
+        console.log(error)
+        res.redirect('/')
+    }
+}
 
 module.exports = router
