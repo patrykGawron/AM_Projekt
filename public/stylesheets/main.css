@@ -18,6 +18,11 @@ body{
 .main .svg-container svg text{
     font: 15px;
 }
+img{
+    width: auto;
+    height: auto;
+    margin: 5px auto;
+}
 
 /* LOGOWANIE I REJESTRACJA */
 input[type=email], input[type=password], input[type=name] {
@@ -92,18 +97,43 @@ li:hover{
 
 /* GRA DRAG AND DROP */
 .div-target{
-    width: 150px;
-    height: 50px;
+    width: 200px;
+    height: 100px;
     padding: 10px;
     margin: 5px;
     border: 1px solid #aaaaaa;
 }
 .drop-container{
     display: flex;
+    flex-direction: row;
 }
 .drop-container p{
     width: 150px;
 }
+.drag-container{
+    display: flex;
+    flex-direction: row;
+}
+
+/* ZAŁĄCZNIK YOUTUBE */
+.iframe-container{
+    /* margin: 0 20%; */
+    position: relative;
+    /* max-width: 1024px; */
+    /* max-height: 720px; */
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+  }
+  .iframe-container iframe{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 560px;
+    max-height: 315px;
+  }
 
 /* ZMIANA PASKA NAWIGACYJNEGO */
 @media screen and (min-width: 1025px){

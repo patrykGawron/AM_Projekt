@@ -1,4 +1,4 @@
-if (process.env.NODE_ENV !== 'production'){
+if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
 
@@ -37,14 +37,14 @@ app.use(passport.session())
 app.use(flash())
 
 // Global Variables
-app.use((req, res, next) =>{
+app.use((req, res, next) => {
     res.locals.success_msg = req.flash('sucess_msg')
     res.locals.error_msg = req.flash('error_msg')
     res.locals.error = req.flash('error')
     next();
 })
 
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
     res.locals.login = req.isAuthenticated();
     next()
 })
@@ -52,9 +52,11 @@ app.use(function(req, res, next){
 
 // MongoDB
 const mongoose = require('mongoose')
-mongoose.connect(process.env.DATABASE_URL, 
-                {   useUnifiedTopology: true,
-                    useNewUrlParser: true})
+mongoose.connect(process.env.DATABASE_URL,
+    {
+        useUnifiedTopology: true,
+        useNewUrlParser: true
+    })
 const db = mongoose.connection
 db.on('error', error => console.error(error))
 db.once('open', () => console.log('Connected to Mongoose'))

@@ -3,19 +3,50 @@
 <h3>Dopasuj trójkąty do ich nazw:</h3>
 
 <div class="drop-container">
-    <p>Trójkąty przystające</p>
+    <p>Trójkąty równoramienny</p>
     <div class="div-target" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 </div>
 <div class="drop-container">
-    <p>Trójkąty podobne</p>
+    <p>Trójkąt rozwartokątny</p>
     <div class="div-target" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 </div>
-<div id="drag1" draggable="true" ondragstart="drag(event)" style="height: 100px; width: 150px;">
-    <svg height="100" width="150">
-        <polygon points="2,2 2,48 48,48" style="fill:gray"></polygon>
-        <polygon points="2,2 48,2 48,48" style="fill:blue"></polygon>
-    </svg>
+<div class="drop-container">
+    <p>Trójkąt prostokątny</p>
+    <div class="div-target" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 </div>
+<div class="drag-container">
+    <div id="drag1" draggable="true" ondragstart="drag(event)" style="height: 100px; width: 200px;">
+        <svg height="100px" width="200px">
+            <polygon id="triangle" points="3,3 3,97 197,97" style="fill:none;stroke:black;stroke-width:1" />
+            <path style="fill:none; stroke:black; stroke-width:1" d="M3,85 Q15,85 20,97" />
+            <circle cx="8" cy="93" r="1" style="fill: black; stroke:none" />
+        </svg>
+    </div>
+    <div id="drag2" draggable="true" ondragstart="drag(event)" style="height: 100px; width: 200px;">
+        <svg height="100px" width="200px">
+            <polygon id="triangle" points="100,3 3,97 197,97" style="fill:none;stroke:black;stroke-width:1" />
+            <text x="35" y="50" fill="black">a</text>
+            <text x="155" y="50" fill="black">a</text>
+        </svg>
+    </div>
+    <div id="drag3" draggable="true" ondragstart="drag(event)" style="height: 100px; width: 200px;">
+        <svg height="100px" width="200px">
+            <polygon id="triangle" points="3,3 40,97 197,97" style="fill:none;stroke:black;stroke-width:1" />
+            <path style="fill:none; stroke:black; stroke-width:1" d="M30,70 Q63,73 75,97" />
+            <text x="37" y="90" fill="black" id="triangle-c">120</text>
+        </svg>
+    </div>
+</div>
+
+<!-- <div id="drag2" draggable="true" ondragstart="drag(event)" style="height: 100px; width: 200px;">
+    <img src="/trojkat_prostokatny.png" style="height: 100px; width: 200px;">
+</div>
+<div id="drag2" draggable="true" ondragstart="drag(event)" style="height: 100px; width: 200px;">
+    <img src="/trojkaty_podobne.png" style="height: 100px; width: 200px;">
+</div>
+<div id="drag2" draggable="true" ondragstart="drag(event)" style="height: 100px; width: 200px;">
+    <img src="/trojkaty_przystajace.jpg" style="height: 100px; width: 200px;">
+</div> -->
 
 
 

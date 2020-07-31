@@ -9,4 +9,8 @@ router.get('/quadraticFunction', (req, res) => {
     res.render('highSchool/quadraticFunction')
 })
 
+router.get('/circleEquation', (req, res) => {
+    res.render('highSchool/circleEquation')
+})
+
 module.exports = router
