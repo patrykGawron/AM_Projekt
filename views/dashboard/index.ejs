@@ -1,25 +1,29 @@
-<h1>Dashboard</h1>
+<h2>Twoja tablica</h2>
 <p>Witaj <%= name %>!</p>
 <p>Lista zadań dodanych przez Ciebie:</p>
-<ul>
-    <% problems.forEach(problem => { %>
-    <div style="float:left; width:100%; margin-bottom: 10px; border-bottom: 1px solid rgb(100, 100, 100)">
-        <div style="float:left;width: 88%">
-            <li><a href="/problems/<%= problem.title %>"><%= problem.title %></a></li>
+<div class="list">
+    <ul>
+        <% problems.forEach(problem => { %>
+        <div class="problem">
+            <div id="problem-title">
+                <li><a href="/problems/<%= problem.title %>"><%= problem.title %></a></li>
+            </div>
+            <div>
+                <form method="GET" action="/problems/<%= problem.id %>/edit">
+                    <button type="submit">Edytuj</button>
+                </form>
+            </div>
+            <div>
+                <form method="POST" action="/problems/<%= problem.id %>?_method=DELETE">
+                    <button type="submit">Usuń</button>
+                </form>
+            </div>
         </div>
-        <div style="float:left;width: 6%">
-            <form method="GET" action="/problems/<%= problem.id %>/edit">
-                <button type="submit">Edytuj</button>
-            </form>
-        </div>
-        <div style="float:left;width: 6%"> 
-            <form method="POST" action="/problems/<%= problem.id %>?_method=DELETE">
-                <button type="submit">Usuń</button>
-            </form>
-        </div>
-    </div>
-    <% }) %>
-</ul>
+        <% }) %>
+    </ul>
+</div>
 
-<a href="/dashboard/logout">Logout</a>
-<a href="/problems/new">Dodaj zadanie</a>
+<div class="bottom-buttons-container" id="problem-buttons">
+    <a href="/dashboard/logout" class="free-link">Wyloguj się</a>
+    <a href="/problems/new" class="free-link">Dodaj zadanie</a>
+</div>

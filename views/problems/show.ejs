@@ -1,16 +1,19 @@
-<h1><%= problem.title %></h1>
-<p><%- problem.contents %></p>
-<p><%- problem.explanation %></p>
-<p><%- problem.solution %></p>
-<p><%- problem.author %></p>
-
-<% if(user.name == problem.author ) { %>
-<form method="POST" action="/problems/<%= problem.id %>?_method=DELETE">
-    <button type="submit">Usuń</button>
-</form>
-<form method="GET" action="/problems/<%= problem.id %>/edit">
-    <button type="submit">Edytuj</button>
-</form>
-<% } %>
+<div class="problem-show">
+    <h1><%= problem.title %></h1>
+    <p><%- problem.contents %></p>
+    <p><%- problem.explanation %></p>
+    <p><%- problem.solution %></p>
+    <p><%- problem.author %></p>
+</div>
 
 
+<div class="bottom-buttons-container">
+    <% if(user.name == problem.author ) { %>
+    <form method="POST" action="/problems/<%= problem.id %>?_method=DELETE">
+        <button type="submit" class="free-link">Usuń</button>
+    </form>
+    <form method="GET" action="/problems/<%= problem.id %>/edit">
+        <button type="submit" class="free-link">Edytuj</button>
+    </form>
+    <% } %>
+</div>

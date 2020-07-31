@@ -1,29 +1,43 @@
 <%= error_msg %>
 <form action="/problems/<%= problem.id %>?_method=PUT" method="POST">
-    <div>
-        <label>Nazwa zadania</label>
-        <input type="text" name="title" value="<%= problem.title %>">
+    <div class="problem-form">
+        <div>
+            <label>Nazwa zadania</label>
+        </div>
+        <div>
+            <input type="text" name="title" value="<%= problem.title %>">
+        </div>
+        <div>
+            <label>Treść</label>
+        </div>
+        <div>
+            <textarea name="contents" rows="10" cols="30"><%= problem.contents %></textarea>
+        </div>
+        <div>
+            <label>Rozwiązanie</label>
+        </div>
+        <div>
+            <textarea name="explanation" rows="10" cols="30"><%= problem.explanation %></textarea>
+        </div>
+        <div>
+            <label>Odpowiedź</label>
+        </div>
+        <div>
+            <textarea name="solution" rows="10" cols="30"><%= problem.solution %></textarea>
+        </div>
+        <div>
+            <label>Poziom</label>
+            <input list="school" name="school" value="<%= problem.school %>">
+            <datalist id="school">
+                <option value="Liceum">
+                <option value="Szkoła podstawowa">
+            </datalist>
+        </div>
     </div>
-    <div>
-        <label>Treść</label>
-        <textarea name="contents" rows="10" cols="30"><%= problem.contents %></textarea>
+
+    <div class="bottom-buttons-container">
+        <a href="/dashboard" class="free-link">Wstecz</a>
+        <button type="submit" class="free-link">Zatwierdź zmiany</button>
     </div>
-    <div>
-        <label>Rozwiązanie</label>
-        <textarea name="explanation" rows="10" cols="30"><%= problem.explanation %></textarea>
-    </div>
-    <div>
-        <label>Odpowiedź</label>
-        <textarea name="solution" rows="10" cols="30"><%= problem.solution %></textarea>
-    </div>
-    <div>
-        <label>Poziom</label>
-        <input list="school" name="school" value="<%= problem.school %>">
-        <datalist id="school">
-            <option value="Liceum">
-            <option value="Szkoła podstawowa">
-          </datalist>
-    </div>
-    <a href="/dashboard">Wstecz</a>
-    <button type="submit">Zatwierdź zmiany</button>
+
 </form>

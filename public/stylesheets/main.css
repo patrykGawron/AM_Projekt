@@ -59,12 +59,13 @@ input[type=submit]:hover {
     border-left: black 3px solid;
     padding: 0px 5px 0px 10px;
     margin: 10px 10px 10px 0px;
+    height: auto;
 }
-.list ol{
+.list ol, .list ul{
     padding-left: 15px;
     text-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
-.list ol li a{
+.list ol li a, .list ul li a{
     text-decoration: none;
     color: black;
 }
@@ -135,6 +136,99 @@ a:hover{
     max-width: 560px;
     max-height: 315px;
   }
+/* LISTA ZADAŃ NA TABLICY */
+.problem{
+    float:left; 
+    width:100%; 
+    margin-bottom: 10px; 
+    border-bottom: 2px solid black;
+    padding-top: 3px;
+    text-decoration: none;
+}
+.problem:hover{
+    background-color: #f1f1f1;
+}
+.problem button{
+    float:left;
+    width: 8%;
+    background-color: #111111;
+    color: #818181;
+    border: 1px solid #111111;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 1px 3px 4px 3px;
+}
+.problem button:hover {
+    color: #f1f1f1;
+}
+.problem a:hover{
+    color: #f1f1f1;
+}
+#problem-title{
+    width: calc(84% - 12px);
+    float: left;
+}
+.free-link{
+    text-decoration: none;
+    padding: 5px;
+    width: auto;
+    margin: 10px 6px 6px 6px;
+    background-color: #111111;
+    color: #818181;
+    border: 1px solid #111111;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.free-link:hover{
+    color: #f1f1f1;
+}
+.bottom-buttons-container{
+    height: auto;
+    width: 98%;
+    margin-top: 20px;
+    padding: 5px;
+    display: flex;
+    flex-direction: left;
+}
+.bottom-buttons-container:not(#problem-buttons){
+    background-color: #f1f1f1;
+}
+
+/* EDYCJA ZADANIA */
+.problem-form label{
+    font-weight: 600;
+}
+.problem-form textarea, .problem-form input{
+    margin-bottom: 10px;
+}
+
+/* WIDOK ZADANIA */
+.problem-show p{
+    float:left; 
+    width:100%; 
+    margin-bottom: 10px; 
+    border-bottom: 2px solid black;
+    padding-top: 3px;
+}
+
+/* LISTA ZADAŃ */
+.problem-list li{
+    width:100%; 
+    margin-bottom: 10px; 
+    border-bottom: 2px solid black;
+    padding-top: 3px;
+}
+.problem-list li:hover{
+    background-color: #f1f1f1;
+}
+.problem-list a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+}
+.problem-list a:hover{
+    color: #f1f1f1;
+}
 
 /* ZMIANA PASKA NAWIGACYJNEGO */
 @media screen and (min-width: 1025px){
